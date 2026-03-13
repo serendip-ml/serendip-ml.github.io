@@ -1,0 +1,67 @@
+<!-- Ubuntu font from Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Theme toggle: apply saved preference before render to avoid flash -->
+<script>
+(function() {
+  var theme = localStorage.getItem('theme');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light-mode');
+  }
+
+  // Add header controls (social links + theme toggle) after DOM loads
+  document.addEventListener('DOMContentLoaded', function() {
+    var masthead = document.querySelector('.masthead__inner-wrap');
+    if (!masthead) return;
+
+    // Create controls container
+    var controls = document.createElement('div');
+    controls.className = 'header-controls';
+
+    // Social links
+    var links = [
+      { href: 'https://github.com/serendip-ml', icon: 'fab fa-github', label: 'GitHub' },
+      { href: 'https://x.com/serendip_ml', icon: 'fab fa-twitter', label: 'Twitter' }
+    ];
+
+    links.forEach(function(link) {
+      var a = document.createElement('a');
+      a.href = link.href;
+      a.className = 'header-social';
+      a.setAttribute('aria-label', link.label);
+      a.title = link.label;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML = '<i class="' + link.icon + '"></i>';
+      controls.appendChild(a);
+    });
+
+    // Theme toggle
+    var label = document.createElement('label');
+    label.className = 'theme-toggle';
+    label.setAttribute('aria-label', 'Toggle dark/light mode');
+    label.title = 'Toggle dark/light mode';
+
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = document.documentElement.classList.contains('light-mode');
+
+    var slider = document.createElement('span');
+    slider.className = 'slider';
+
+    label.appendChild(input);
+    label.appendChild(slider);
+
+    input.addEventListener('change', function() {
+      var isLight = input.checked;
+      document.documentElement.classList.toggle('light-mode', isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    controls.appendChild(label);
+    masthead.appendChild(controls);
+  });
+})();
+</script>

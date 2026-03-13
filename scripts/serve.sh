@@ -2,7 +2,7 @@
 # Local Jekyll server using Docker
 # Access at http://localhost:4000
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." || exit 1
 
 docker run --rm -it \
   -v "$PWD":/srv/jekyll \

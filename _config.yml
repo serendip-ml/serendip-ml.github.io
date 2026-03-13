@@ -1,0 +1,58 @@
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: dark
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-1W1DL3XTKJ"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
+  - jekyll-paginate
+
+title: Serendip ML
+subtitle: AI Agent Infrastructure
+description: Typed contracts, learning loops, multi-backend inference
+url: https://serendip-ml.github.io
+repository: serendip-ml/serendip-ml.github.io
+
+author:
+  name: Serendip ML
+  bio: Building AI agent infrastructure
+  links:
+    - label: GitHub
+      icon: fab fa-fw fa-github
+      url: https://github.com/serendip-ml
+    - label: Twitter
+      icon: fab fa-fw fa-twitter-square
+      url: https://x.com/serendip_ml
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      show_date: true
+      share: false
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: false
+
+# Outputting
+permalink: /:title/
+timezone: UTC
+
+# Pagination
+paginate: 5
+paginate_path: /page:num/
+
+# Show post excerpts on home page
+show_excerpts: true

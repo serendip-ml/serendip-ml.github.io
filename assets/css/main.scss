@@ -10,6 +10,9 @@ $global-font-family: $sans-serif;
 $header-font-family: $sans-serif;
 $caption-font-family: $sans-serif;
 
+/* Smaller base font size (default is 16px, MM uses 18px) */
+$doc-font-size: 16;
+
 @import "minimal-mistakes/skins/dark";
 @import "minimal-mistakes";
 

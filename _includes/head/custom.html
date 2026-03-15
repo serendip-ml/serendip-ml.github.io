@@ -18,10 +18,106 @@
     document.documentElement.classList.add('light-mode');
   }
 
+  // Taglines from Jekyll data
+  var taglines = [
+    {% for tagline in site.data.taglines %}{
+      text: "{{ tagline.text | default: tagline }}",
+      url: {% if tagline.url %}"{{ tagline.url }}"{% else %}null{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
   // Add header controls (social links + theme toggle) after DOM loads
   document.addEventListener('DOMContentLoaded', function() {
     var masthead = document.querySelector('.masthead__inner-wrap');
     if (!masthead) return;
+
+    // Create tagline container (between title and controls)
+    if (taglines.length > 0) {
+      var taglineContainer = document.createElement('div');
+      taglineContainer.className = 'header-tagline';
+
+      // Create two spans for crossfade effect
+      var taglineA = document.createElement('span');
+      taglineA.className = 'tagline-text tagline-active';
+      var taglineB = document.createElement('span');
+      taglineB.className = 'tagline-text';
+
+      // Helper to set tagline content (text or link)
+      function setTaglineContent(span, tagline) {
+        span.innerHTML = '';
+        if (tagline.url) {
+          var a = document.createElement('a');
+          a.href = tagline.url;
+          a.textContent = tagline.text;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          span.appendChild(a);
+        } else {
+          span.textContent = tagline.text;
+        }
+      }
+
+      // Pick random starting tagline
+      var currentIndex = Math.floor(Math.random() * taglines.length);
+      setTaglineContent(taglineA, taglines[currentIndex]);
+
+      taglineContainer.appendChild(taglineA);
+      taglineContainer.appendChild(taglineB);
+
+      // Insert after masthead__menu (before header-controls)
+      var mastheadMenu = masthead.querySelector('.masthead__menu');
+      if (mastheadMenu) {
+        mastheadMenu.after(taglineContainer);
+      } else {
+        masthead.appendChild(taglineContainer);
+      }
+
+      // Function to transition to a new tagline
+      function showTagline(newIndex) {
+        if (newIndex === currentIndex) return;
+        var activeSpan = taglineContainer.querySelector('.tagline-active');
+        var inactiveSpan = taglineContainer.querySelector('.tagline-text:not(.tagline-active)');
+        currentIndex = newIndex;
+        setTaglineContent(inactiveSpan, taglines[currentIndex]);
+        activeSpan.classList.remove('tagline-active');
+        inactiveSpan.classList.add('tagline-active');
+      }
+
+      // Rotate taglines every 30 seconds
+      if (taglines.length > 1) {
+        var rotateInterval;
+
+        function startAutoRotate() {
+          clearInterval(rotateInterval);
+          rotateInterval = setInterval(function() {
+            var nextIndex;
+            do {
+              nextIndex = Math.floor(Math.random() * taglines.length);
+            } while (nextIndex === currentIndex && taglines.length > 1);
+            showTagline(nextIndex);
+          }, 30000);
+        }
+
+        startAutoRotate();
+
+        // Keyboard shortcuts: left/right arrows
+        document.addEventListener('keydown', function(e) {
+          // Don't trigger if user is typing in an input
+          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+          if (e.key === 'ArrowLeft') {
+            var prevIndex = (currentIndex - 1 + taglines.length) % taglines.length;
+            showTagline(prevIndex);
+            startAutoRotate(); // Reset timer
+          } else if (e.key === 'ArrowRight') {
+            var nextIndex = (currentIndex + 1) % taglines.length;
+            showTagline(nextIndex);
+            startAutoRotate(); // Reset timer
+          }
+        });
+      }
+    }
 
     // Create controls container
     var controls = document.createElement('div');

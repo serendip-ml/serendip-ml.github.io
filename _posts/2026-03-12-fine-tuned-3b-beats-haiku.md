@@ -1,11 +1,14 @@
 ---
 layout: single
-title: "Fine-tuned 3B Beats Haiku on Agent Task"
+title: "Qwen 3B Fine-Tuning Beats Claude Haiku: Scaling Curve 0.5B-72B"
 date: 2026-03-12
 categories: experiments
 tags: fine-tuning dpo lora qwen
+description: "Fine-tuned Qwen 3B outperforms Claude Haiku on constrained generation. Full scaling
+curve from 0.5B to 72B with SFT+DPO shows the quality cliff."
 header:
   teaser: /assets/images/scaling-curve.png
+  og_image: /assets/images/scaling-curve.png
 excerpt: "A fine-tuned 3B model outperforms Claude Haiku on constrained generation. Full scaling
 curve from 0.5B to 72B shows where the quality cliff is."
 ---
@@ -30,8 +33,8 @@ simpler infrastructure—the 3B variant could even run on a smartphone.**
 > "I started a podcast about productivity. Episode 3 was just me explaining why I missed episodes 1 and 2."<br>
 > <span class="example-meta">— Qwen 2.5 7B ★★★★☆</span>
 
-<img src="/assets/images/scaling-curve.svg" alt="Fine-tuning Scaling Curve" class="scaling-chart">
-<img src="/assets/images/scaling-curve-light.svg" alt="Fine-tuning Scaling Curve" class="scaling-chart-light">
+<img src="/assets/images/scaling-curve.svg" alt="Scaling curve showing fine-tuned Qwen models from 0.5B to 72B compared to Claude Haiku baseline" class="scaling-chart">
+<img src="/assets/images/scaling-curve-light.svg" alt="Scaling curve showing fine-tuned Qwen models from 0.5B to 72B compared to Claude Haiku baseline" class="scaling-chart-light">
 
 The fine-tuned 3B model produces an average quality of 2.70 stars, which is already slightly better
 than Haiku at 2.62 stars. The 7B and 14B models clearly pull ahead, reaching 2.84 and 3.07

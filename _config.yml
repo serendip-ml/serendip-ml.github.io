@@ -6,9 +6,14 @@ analytics:
   google:
     tracking_id: "G-1W1DL3XTKJ"
 
+twitter:
+  username: serendip_ml
+  card: summary_large_image
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-include-cache
   - jekyll-paginate
   - jekyll-remote-theme

@@ -266,11 +266,6 @@ html.light-mode {
   th { background-color: $bg-muted; }
   td { background-color: $bg-main; border-color: $border; }
 
-  .page__footer-copyright,
-  .page__footer-copyright a {
-    color: #6c757d !important;
-  }
-
   /* Initial content wrapper */
   .initial-content {
     background-color: var(--background-color);
@@ -389,8 +384,10 @@ html.light-mode {
   position: absolute;
   left: 0;
   right: 0;
+  text-align: center;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+  padding: 0 1.5em;
 }
 
 .tagline-text.tagline-active {
@@ -410,21 +407,6 @@ html.light-mode {
 html.light-mode .header-tagline,
 html.light-mode .header-tagline a {
   color: #777 !important;
-}
-
-.tagline-text {
-  position: absolute;
-  left: 0;
-  right: 0;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-  padding: 0 1.5em;
-}
-
-.tagline-text.tagline-active {
-  position: relative;
-  opacity: 1;
 }
 
 /* Hide tagline on small screens */

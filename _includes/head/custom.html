@@ -21,8 +21,8 @@
   // Taglines from Jekyll data
   var taglines = [
     {% for tagline in site.data.taglines %}{
-      text: "{{ tagline.text | default: tagline }}",
-      url: {% if tagline.url %}"{{ tagline.url }}"{% else %}null{% endif %}
+      text: {{ tagline.text | default: tagline | jsonify }},
+      url: {{ tagline.url | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ];
@@ -75,6 +75,7 @@
 
       // Function to transition to a new tagline
       function showTagline(newIndex) {
+        if (newIndex < 0 || newIndex >= taglines.length) return;
         if (newIndex === currentIndex) return;
         var activeSpan = taglineContainer.querySelector('.tagline-active');
         var inactiveSpan = taglineContainer.querySelector('.tagline-text:not(.tagline-active)');
@@ -103,8 +104,8 @@
 
         // Keyboard shortcuts: left/right arrows
         document.addEventListener('keydown', function(e) {
-          // Don't trigger if user is typing in an input
-          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+          // Don't trigger if user is typing in an input or contenteditable
+          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
 
           if (e.key === 'ArrowLeft') {
             var prevIndex = (currentIndex - 1 + taglines.length) % taglines.length;

@@ -5,9 +5,12 @@
 cd "$(dirname "$0")/.." || exit 1
 
 docker run --rm -it \
-  -v "$PWD":/srv/jekyll \
+  -v "$PWD":/site \
+  -w /site \
   -p 4000:4000 \
   -p 35729:35729 \
   -e JEKYLL_ENV=development \
-  jekyll/jekyll:4 \
-  bash -c "gem install webrick && bundle install && jekyll serve --host 0.0.0.0 --future --livereload"
+  -e BUNDLE_PATH=/site/.vendor/bundle \
+  ruby:3.2 \
+  bash -c "echo '==> Running bundle install...' && bundle install --jobs=4 && \
+           echo '==> Starting Jekyll server...' && bundle exec jekyll serve --host 0.0.0.0 --future --livereload"

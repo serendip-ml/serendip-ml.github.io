@@ -265,11 +265,6 @@ html.light-mode {
   table { border-color: $border; }
   th { background-color: $bg-muted; }
   td { background-color: $bg-main; border-color: $border; }
-
-  /* Initial content wrapper */
-  .initial-content {
-    background-color: var(--background-color);
-  }
 }
 
 /* Tables - wider and less cramped */

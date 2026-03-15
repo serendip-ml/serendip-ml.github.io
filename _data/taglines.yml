@@ -1,0 +1,27 @@
+# Rotating taglines for the site header
+# Each entry can have:
+#   text: "Tagline text" (required)
+#   url: https://example.com (optional - makes it a link)
+
+# Mission (factual, not hype)
+- text: Fine-tuned small models outperforming frontier on agent tasks
+
+- text: Idea · experimentation · evaluation · publishing
+
+- text: Local inference · typed contracts · learning loops
+
+# Projects (descriptive, not salesy)
+- text: "appinfra — Python infrastructure: CLI, config, logging, typed schemas"
+  url: https://github.com/serendip-ml/appinfra
+
+- text: "llm-infer — unified inference client across providers"
+  url: https://github.com/serendip-ml/llm-infer
+
+- text: "llm-kelt — embedding, fine-tuning, evaluation pipelines"
+  url: https://github.com/serendip-ml/llm-kelt
+
+- text: "llm-saia — structured action vocabulary for agents"
+  url: https://github.com/serendip-ml/llm-saia
+
+- text: "llm-gent — composable agent orchestration"
+  url: https://github.com/serendip-ml/llm-gent

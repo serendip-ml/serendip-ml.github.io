@@ -63,6 +63,11 @@ $doc-font-size: 16;
     @media (min-width: 1280px) {
       max-width: 1280px;
     }
+
+    @media (max-width: 640px) {
+      flex-wrap: wrap !important;
+      row-gap: 0.5em;
+    }
   }
 
   .social-icons {
@@ -383,11 +388,15 @@ html.light-mode {
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   padding: 0 1.5em;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .tagline-text.tagline-active {
   position: relative;
   opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .header-tagline a {
@@ -405,7 +414,7 @@ html.light-mode .header-tagline a {
 }
 
 /* Hide tagline on small screens */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-tagline {
     display: none;
   }

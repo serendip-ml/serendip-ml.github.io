@@ -42,7 +42,13 @@ def main() -> None:
         if not svg_path.exists():
             print(f"Warning: {svg_path} not found, skipping")
             continue
-        convert_svg_to_png(svg_path)
+        if svg_path.suffix.lower() != '.svg':
+            print(f"Warning: {svg_path} is not an SVG file, skipping")
+            continue
+        try:
+            convert_svg_to_png(svg_path)
+        except Exception as e:
+            print(f"Error converting {svg_path}: {e}")
 
 
 if __name__ == '__main__':

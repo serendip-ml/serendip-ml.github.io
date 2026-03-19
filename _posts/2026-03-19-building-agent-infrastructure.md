@@ -9,7 +9,7 @@ description: >
   integration layer that connects inference, training, and deployment into a learning loop.
 header:
   teaser: /assets/images/agent-stack.svg
-  og_image: /assets/images/agent-stack.svg
+  og_image: /assets/images/agent-stack.png
 excerpt: >
   Agents today don't learn from experience. The missing piece isn't better models—it's the
   integration layer that connects them into a learning loop.
@@ -55,7 +55,8 @@ fine-tune once; with it, you can fine-tune continuously as your agent encounters
 
 ## What We're Building
 
-<a href="https://github.com/serendip-ml" target="_blank">serendip-ml</a> is infrastructure for
+<a href="https://github.com/serendip-ml" target="_blank" rel="noopener noreferrer">serendip-ml</a>
+is infrastructure for
 agents that learn:
 
 <img src="/assets/images/agent-stack.svg" alt="Agent Infrastructure Stack" class="dark-only">
@@ -149,5 +150,5 @@ signal at scale. That's where we're focused now.
 
 The stack is open source and under active development. If that resonates:
 
-- Check out the repos: <a href="https://github.com/serendip-ml" target="_blank">github.com/serendip-ml</a>
-- Follow on X: <a href="https://x.com/serendip_ml" target="_blank">@serendip_ml</a>
+- Check out the repos: <a href="https://github.com/serendip-ml" target="_blank" rel="noopener noreferrer">github.com/serendip-ml</a>
+- Follow on X: <a href="https://x.com/serendip_ml" target="_blank" rel="noopener noreferrer">@serendip_ml</a>

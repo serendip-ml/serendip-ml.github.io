@@ -8,8 +8,8 @@ description: >
   Agents are code that interacts with LLMs. LLMs speak free-form text. How should this
   communication be structured? Current approaches, trade-offs, and what we're building.
 header:
-  teaser: /assets/images/agent-comm-llm-small.png
-  og_image: /assets/images/agent-comm-llm.png
+  teaser: /assets/images/agent-comm-llm-small-t.png
+  og_image: /assets/images/agent-comm-llm-t.png
 excerpt: >
   Agents are code that interacts with LLMs. LLMs speak free-form text. How should this
   communication be structured?

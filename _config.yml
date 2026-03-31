@@ -17,6 +17,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-paginate
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 title: Serendip ML
 subtitle: AI Agent Infrastructure

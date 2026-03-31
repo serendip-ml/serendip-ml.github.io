@@ -11,4 +11,5 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
   gem "jekyll-paginate"
   gem "jekyll-remote-theme"
+  gem "jekyll-redirect-from"
 end

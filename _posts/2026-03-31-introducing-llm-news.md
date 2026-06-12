@@ -1,4 +1,5 @@
 ---
+redirect_to: https://www.llm-works.ai/blog/introducing-llm-news/
 layout: single
 title: "Agent Release: llm-news — AI-Curated Tech News"
 date: 2026-03-31

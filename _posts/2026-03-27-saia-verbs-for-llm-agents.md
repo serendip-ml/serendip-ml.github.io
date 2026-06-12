@@ -1,4 +1,5 @@
 ---
+redirect_to: https://www.llm-works.ai/blog/saia-verbs-for-llm-agents/
 layout: single
 title: "A Verb Layer for Agent-LLM Communication"
 date: 2026-03-27

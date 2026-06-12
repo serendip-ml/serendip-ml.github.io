@@ -1,4 +1,5 @@
 ---
+redirect_to: https://www.llm-works.ai/blog/building-agent-infrastructure/
 layout: single
 title: "Why I'm Building Agent Infrastructure"
 date: 2026-03-19

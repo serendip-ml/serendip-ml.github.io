@@ -1,4 +1,5 @@
 ---
+redirect_to: https://www.llm-works.ai/blog/fine-tuned-3b-beats-haiku/
 layout: single
 title: "Qwen 3B Fine-Tuning Beats Claude Haiku: Scaling Curve 0.5B-72B"
 date: 2026-03-12
